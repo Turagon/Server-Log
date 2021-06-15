@@ -5,7 +5,7 @@ function serverLog (req, res, next) {
   req.time = new Date()
   const timeDifference = function () {
     const resTime = new Date()
-    console.log(req.time.toLocaleString('zh-TW', { timeZone: 'Asia/Taipei' }), " | ", method, "from", host + url, " | ", "total time : ", resTime.getTime() - req.time.getTime(), "ms")
+    console.log(req.time.toLocaleString('zh-TW', { timeZone: 'Asia/Taipei', hour12: false }), " | ", method, "from", host + url, " | ", "total time : ", resTime.getTime() - req.time.getTime(), "ms")
   }
   res.once('finish', timeDifference)
   res.once('close', timeDifference)
